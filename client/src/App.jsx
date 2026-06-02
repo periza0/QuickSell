@@ -1,17 +1,11 @@
-import { useState } from "react";
+import Header from "./Header";
 
 function App() {
-  const [products, setProducts] = useState(0);
-
   return (
     <div>
-      <h1>QuickSell</h1>
+      <Header />
 
-      <p>Products Sold: {products}</p>
-
-      <button onClick={() => setProducts(products + 1)}>
-        Sell Product
-      </button>
+      <p>Welcome Maninder</p>
     </div>
   );
 }
