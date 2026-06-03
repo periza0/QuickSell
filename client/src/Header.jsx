@@ -1,7 +1,7 @@
-function Header(){
-    return(<div>
-        <h1>QuickSell</h1>
-      </div>
-      );
-}
-export default Header;
+function Header(props) {
+    return (
+      <h1>{props.title}</h1>
+    )
+  }
+  
+  export default Header
