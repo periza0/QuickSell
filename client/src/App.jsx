@@ -1,11 +1,21 @@
-import Header from "./Header";
+import "./App.css";
 
 function App() {
   return (
     <div>
-      <Header title="QuickSell" />
+      <nav>
+        <h1>QuickSell</h1>
+      </nav>
 
-      <p>Welcome Maninder</p>
+      <section className="hero">
+        <h2>Buy and Sell Products Easily</h2>
+
+        <p>
+          Sell books, gadgets, notes and more.
+        </p>
+
+        <button>Start Selling hello </button>
+      </section>
     </div>
   );
 }
