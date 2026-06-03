@@ -1,21 +1,34 @@
-import "./App.css";
+import { useState } from "react";
 
 function App() {
+  const [price, setPrice] = useState(500);
+
   return (
     <div>
       <nav>
         <h1>QuickSell</h1>
       </nav>
 
-      <section className="hero">
-        <h2>Buy and Sell Products Easily</h2>
+      <section>
+        <h2>Product Name: Iphone</h2>
 
-        <p>
-          Sell books, gadgets, notes and more.
-        </p>
+        <p>price:5000</p>
 
-        <button>Start Selling hello </button>
+        <h3>Current Price: ₹{price}</h3>
+        <button onClick={() => setPrice(price + 1000)}>
+  Increase Price
+</button>
       </section>
+      <button onClick={() => {
+      if (price > 0) {
+       setPrice(price - 1000);
+      }
+      if (price <1000) {
+        setPrice(0);
+       }
+      }}>
+    decrease Price
+     </button>
     </div>
   );
 }
