@@ -1,7 +1,8 @@
 import { useState } from "react";
 
 function App() {
-  const [price, setPrice] = useState(500);
+  const [price, setPrice] = useState(5000);
+  const [clicks, setClicks] = useState(0);
 
   return (
     <div>
@@ -10,25 +11,30 @@ function App() {
       </nav>
 
       <section>
-        <h2>Product Name: Iphone</h2>
-
-        <p>price:5000</p>
+        <h2>Product Name: iPhone</h2>
 
         <h3>Current Price: ₹{price}</h3>
-        <button onClick={() => setPrice(price + 1000)}>
-  Increase Price
-</button>
+
+        <button
+          onClick={() => {
+            setPrice(price + 1000);
+            setClicks(clicks + 1);
+          }}
+        >
+          +1000
+        </button>
+
+        <button
+          onClick={() => {
+            setPrice(Math.max(0, price - 1000));
+            setClicks(clicks + 1);
+          }}
+        >
+          -1000
+        </button>
+
+        <h3>Total Clicks: {clicks}</h3>
       </section>
-      <button onClick={() => {
-      if (price > 0) {
-       setPrice(price - 1000);
-      }
-      if (price <1000) {
-        setPrice(0);
-       }
-      }}>
-    decrease Price
-     </button>
     </div>
   );
 }
