@@ -1,40 +1,43 @@
 import { useState } from "react";
 
 function App() {
-  const [price, setPrice] = useState(5000);
-  const [clicks, setClicks] = useState(0);
+  const [productName, setProductName] = useState("");
+  const [lastProduct, setLastProduct] = useState("None");
 
   return (
-    <div>
-      <nav>
-        <h1>QuickSell</h1>
+    <div className="min-h-screen bg-gray-100">
+      <nav className="bg-white shadow-md p-4">
+        <h1 className="text-3xl font-bold text-blue-600">
+          QuickSell
+        </h1>
       </nav>
 
-      <section>
-        <h2>Product Name: iPhone</h2>
+      <div className="max-w-xl mx-auto mt-10 bg-white p-6 rounded-lg shadow">
+        <h2 className="text-2xl font-bold mb-4">
+          Add Product
+        </h2>
 
-        <h3>Current Price: ₹{price}</h3>
+        <input
+          type="text"
+          placeholder="Enter product name"
+          value={productName}
+          onChange={(e) => setProductName(e.target.value)}
+          className="w-full border p-3 rounded mb-4"
+        />
 
         <button
           onClick={() => {
-            setPrice(price + 1000);
-            setClicks(clicks + 1);
+            setLastProduct(productName);
           }}
+          className="bg-blue-600 text-white px-4 py-2 rounded"
         >
-          +1000
+          Add Product
         </button>
 
-        <button
-          onClick={() => {
-            setPrice(Math.max(0, price - 1000));
-            setClicks(clicks + 1);
-          }}
-        >
-          -1000
-        </button>
-
-        <h3>Total Clicks: {clicks}</h3>
-      </section>
+        <h3 className="mt-4 text-lg">
+          Last Product Added: {lastProduct}
+        </h3>
+      </div>
     </div>
   );
 }
